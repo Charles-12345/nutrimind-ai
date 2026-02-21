@@ -218,13 +218,24 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
     st.markdown("---")
-    hf_token = st.text_input("🔑 HuggingFace API Token", type="password",
-                             value=st.session_state.get("hf_token",""),
-                             help="Get your free token at huggingface.co/settings/tokens")
-    if hf_token:
-        st.session_state["hf_token"] = hf_token
-        st.success("Token saved ✓")
 
+    import streamlit as st
+
+    # Load token from Streamlit secrets only once
+    if "hf_token" not in st.session_state:
+        st.session_state.hf_token = ""
+
+        if "HF_TOKEN" in st.secrets:
+            st.session_state.hf_token = st.secrets["HF_TOKEN"]
+
+    # Input field
+    hf_token = st.text_input(
+        "🔑 HuggingFace API Token",
+        type="password",
+        value=st.session_state.hf_token,
+    )
+    # Keep session state updated if user types manually
+    st.session_state.hf_token = hf_token
     st.markdown("---")
     st.markdown("### 📊 Daily Targets")
     p = st.session_state.profile
