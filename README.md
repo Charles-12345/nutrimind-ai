@@ -29,25 +29,6 @@ git clone https://github.com/YOUR_USERNAME/nutrimind-ai.git
 cd nutrimind-ai
 ```
 
-### 2. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Get your FREE HuggingFace API Token
-1. Go to [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
-2. Click **New Token** → select **Read** role
-3. Copy the token
-
-### 4. Run the app
-```bash
-streamlit run app.py
-```
-
-Then paste your HuggingFace token in the **sidebar** and you're good to go!
-
----
-
 ## 🗂️ Project Structure
 
 ```
@@ -61,21 +42,6 @@ nutrimind-ai/
     ├── charts.py            # Plotly chart helpers
     └── session.py           # Streamlit session state defaults
 ```
-
----
-
-## ☁️ Deploy for Free
-
-### Option A: Streamlit Cloud
-1. Push to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your repo → deploy
-4. Add `HF_TOKEN` in Streamlit secrets
-
-### Option B: HuggingFace Spaces
-1. Create a new Space at [huggingface.co/spaces](https://huggingface.co/spaces)
-2. Select **Streamlit** as the SDK
-3. Push your code — it deploys automatically!
 
 ---
 
